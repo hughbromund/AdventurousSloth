@@ -1,0 +1,46 @@
+.wrapper {
+    /* border: 1px solid black; */
+    height: 100vh;
+}
+.leftDivTemp {
+    width: 50%;
+    float: left;
+    /* border: 1px solid red;*/
+    text-align: center;
+    height: 100vh;
+    background-image: url(desert.jpg);
+    background-size: contain;
+    background-size: cover;
+    font-family: "Ubuntu";
+    color: white;
+    -webkit-filter: grayscale(100%);
+    transition: 0.5s;
+    font-size: 5vw;
+    font-weight: bold;
+}
+.rightDivTemp {
+    width: 50%;
+    float: left;
+    /* border: 1px solid green; */
+    text-align: center;
+    height: 100vh;
+    background-image: url(arctic.jpg); 
+    background-size: contain;
+    background-size: cover;
+    font-family: "Ubuntu";
+    color: white;
+    -webkit-filter: grayscale(100%);
+    transition: 0.5s;
+    font-size: 5vw;
+    font-weight: bold;
+}
+
+.leftDivTemp:hover {
+    -webkit-filter: grayscale(0%);
+    cursor: pointer;
+}
+
+.rightDivTemp:hover {
+    -webkit-filter: grayscale(0%);
+    cursor: pointer;
+}

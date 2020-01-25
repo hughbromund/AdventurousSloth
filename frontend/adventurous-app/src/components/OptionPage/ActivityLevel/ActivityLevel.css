@@ -1,0 +1,47 @@
+.wrapper {
+    /* border: 1px solid black; */
+    height: 100vh;
+}
+.leftDivActive {
+    width: 50%;
+    float: left;
+    /* border: 1px solid red;*/
+    text-align: center;
+    height: 100vh;
+    background-image: url(rock.jpg);
+    background-size: contain;
+    background-size: cover;
+    font-family: "Ubuntu";
+    color: white;
+    -webkit-filter: grayscale(100%);
+    transition: 0.5s;
+    font-size: 5vw;
+    font-weight: bold;
+}
+.rightDivActive {
+    width: 50%;
+    float: left;
+    /* border: 1px solid green; */
+    text-align: center;
+    height: 100vh;
+    background-image: url(spa.jpg); 
+    background-size: contain;
+    background-size: cover;
+    font-family: "Ubuntu";
+    color: white;
+    -webkit-filter: grayscale(100%);
+    transition: 0.5s;
+    font-size: 5vw;
+    text-align: center;
+    font-weight: bold;
+}
+
+.leftDivActive:hover {
+    -webkit-filter: grayscale(0%);
+    cursor: pointer;
+}
+
+.rightDivActive:hover {
+    -webkit-filter: grayscale(0%);
+    cursor: pointer;
+}

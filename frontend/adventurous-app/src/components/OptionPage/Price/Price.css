@@ -1,0 +1,46 @@
+.wrapper {
+    /* border: 1px solid black; */
+    height: 100vh;
+}
+.leftDivPrice {
+    width: 50%;
+    float: left;
+    /* border: 1px solid red;*/
+    text-align: center;
+    height: 100vh;
+    background-image: url(yarn.jpg);
+    background-size: contain;
+    background-size: cover;
+    font-family: "Ubuntu";
+    color: white;
+    -webkit-filter: grayscale(100%);
+    transition: 0.5s;
+    font-size: 5vw;
+    font-weight: bold;
+}
+.rightDivPrice {
+    width: 50%;
+    float: left;
+    /* border: 1px solid green; */
+    text-align: center;
+    height: 100vh;
+    background-image: url(money.jpg); 
+    background-size: contain;
+    background-size: cover;
+    font-family: "Ubuntu";
+    color: white;
+    -webkit-filter: grayscale(100%);
+    transition: 0.5s;
+    font-size: 5vw;
+    font-weight: bold;
+}
+
+.leftDivPrice:hover {
+    -webkit-filter: grayscale(0%);
+    cursor: pointer;
+}
+
+.rightDivPrice:hover {
+    -webkit-filter: grayscale(0%);
+    cursor: pointer;
+}
