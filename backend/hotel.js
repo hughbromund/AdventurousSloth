@@ -82,7 +82,7 @@ app.get('/get/hotels/:location/:date', (req, res) => {
                 });
             });
     
-            res.json(hotel_dense);
+            res.json(hotel_dense[0]);
         });
     });
 
