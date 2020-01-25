@@ -13,7 +13,7 @@ var attraction_options = {
       currency: 'USD',
       sort: 'recommended',
       lunit: 'mi',
-      limit: '30',
+      limit: '12',
       bookable_first: 'false',
       location_id: '37209'
     },
@@ -42,8 +42,8 @@ headers: {
 }
 };
 
-app.get('/attraction/:city', (req, res) => {
-    location_options.qs.query = req.params.city;
+app.get('/get/attractions/:location', (req, res) => {
+    location_options.qs.query = req.params.location;
 
     request(location_options, function(error, response, body) {
         if (error) {
@@ -67,7 +67,7 @@ app.get('/attraction/:city', (req, res) => {
                 if (element.ad_position) {
                     return;
                 }
-                
+
                 attract_dense.push({
                     name: element.name,
                     desc: element.description,

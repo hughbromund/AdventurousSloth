@@ -16,12 +16,12 @@ var hotel_options = {
       currency: 'USD',
       amenities: 'beach%2Cbar_lounge%2Cairport_transportation',
       child_rm_ages: '7%2C10',
-      limit: '30',
+      limit: '3',
       checkin: '2020-03-08',
       order: 'asc',
       lang: 'en_US',
       sort: 'recommended',
-      nights: '2',
+      nights: '1',
       location_id: '293919',
       adults: '1',
       rooms: '1'
@@ -51,8 +51,8 @@ headers: {
 }
 };
 
-app.get('/hotel/:city', (req, res) => {
-    location_options.qs.query = req.params.city;
+app.get('/get/hotels/:location', (req, res) => {
+    location_options.qs.query = req.params.location;
 
     request(location_options, function(error, response, body) {
         if (error) {
@@ -77,6 +77,7 @@ app.get('/hotel/:city', (req, res) => {
                     name: element.name,
                     rating: element.rating,
                     price: element.price,
+                    location: element.name + ' ' + element.location_string,
                 });
             });
     
