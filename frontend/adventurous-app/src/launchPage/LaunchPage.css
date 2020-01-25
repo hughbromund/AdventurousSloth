@@ -1,0 +1,73 @@
+.subtitle {
+    text-align: center;
+    color: white;
+    font-family: "Ubuntu";
+    font-size: 20,px;
+    font-weight: 700;
+}
+.title {
+    color: white;
+    text-align: left;
+    font-family: "Ubuntu";
+    font-weight: 600;
+    font-size: 75px;
+    background-color: rgb(75, 75, 75);
+    float: left;
+    padding-left: 40px;
+    text-shadow: 4px 4px rgb(87, 31, 31);
+    
+}
+.background {
+    background-color: white;
+    background-image: url(mountainPicture.jpg);
+    background-size: contain;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+.image-container, .blurred, .image-container>img {
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+ }
+.button {
+    padding: 5px;
+    padding-left: 60px;
+    padding-right: 60px;
+    border-radius: 37px 37px 37px 37px;
+    text-align: center;
+    color: black;
+    font-family: "Ubuntu";
+    font-size: 50px;
+    font-weight: 700;
+    background-color: white;
+    border-color: white;
+    transition: .3s;
+    box-shadow: -4px 4px 5px rgb(75, 75, 75);
+}
+.button:hover {
+    color: white;
+    background-color: rgb(75, 75, 75);
+    border-color: rgb(75, 75, 75);
+    cursor: pointer;
+    text-shadow: 4px 4px rgb(87, 31, 31);
+}
+.outside {
+    padding-top: 200px;
+    text-align: center;
+}
+.imagediv {
+    height: 100px;
+    object-fit: contain;
+    text-align: right;
+    vertical-align: middle;
+    background-color: rgb(75, 75, 75);
+    padding-right: 40px;
+    box-shadow: -4px 4px 5px rgb(87, 31, 31);
+}
+.image {
+    height: 100%;
+    vertical-align: middle;
+}

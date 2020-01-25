@@ -1,10 +1,16 @@
 import React from 'react';
+import logo from './logo.svg';
+import LaunchPage from './launchPage/LaunchPage'
 import './App.css';
-import OptionPage from './components/OptionPage/OptionPage';
+import FlightPage from './resultsPages/FlightPage';
 
 function App() {
   return (
-    <OptionPage></OptionPage>
+    //<div className="App">
+    <div>
+      <LaunchPage></LaunchPage>
+      <FlightPage></FlightPage>
+    </div>
   );
 }
 
