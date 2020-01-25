@@ -51,8 +51,9 @@ headers: {
 }
 };
 
-app.get('/get/hotels/:location', (req, res) => {
+app.get('/get/hotels/:location/:date', (req, res) => {
     location_options.qs.query = req.params.location;
+    hotel_options.qs.checkin = req.params.date;
 
     request(location_options, function(error, response, body) {
         if (error) {
