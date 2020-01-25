@@ -1,7 +1,7 @@
 import React from "react";
 import { Pager } from "react-bootstrap";
 
-import ReactPageScroller from "../../src";
+import ReactPageScroller from "./scroller";
 import FirstComponent from "./FirstComponent";
 import SecondComponent from "./SecondComponent";
 import ThirdComponent from "./ThirdComponent";
