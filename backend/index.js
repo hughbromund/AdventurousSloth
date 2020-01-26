@@ -20,7 +20,7 @@ var opts = {
     }
 };
 
-app.get('/get/flights/:departPort/:arrivalPort/:outboundDate/:inboundDate', (req, res) => {
+app.get('/get/flights/:departPort/:arrivalPort/:outboundDate/:inboundDate', cors(), (req, res) => {
     let params = req.params;
     let departPort = params.departPort;
     let arrivalPort = params.arrivalPort;
@@ -200,7 +200,7 @@ headers: {
 };
 
 
-app.get('/get/hotels/:location/:date', (req, res) => {
+app.get('/get/hotels/:location/:date', cors(), (req, res) => {
     location_options.qs.query = req.params.location;
     hotel_options.qs.checkin = req.params.date;
 
