@@ -3,6 +3,7 @@ import "./ResultsPage.css";
 import FlightPage from './FlightPage';
 import HotelPage from './HotelPage';
 import AttractionPage from './AttractionPage';
+import history from '../routes/history';
 
 class ResultsPage extends Component {
 
@@ -78,6 +79,10 @@ return body;
         <HotelPage hotelObj={this.state['hotelData']}></HotelPage>
         <AttractionPage attractionsObj={this.state['attractionsData']}></AttractionPage>
         <FlightPage isReturn = {true} flightObj={this.state['flightData']}></FlightPage>
+        <div className="homeFromResults" onClick={() => history.push('/')}>
+                    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin"></link>
+                    Home
+        </div>
       </div>
       )
   }
