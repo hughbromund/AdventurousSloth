@@ -72,9 +72,8 @@ const HotelPage = (props) => {
                             </div>
                             <div >
                                 Price per Night: {price}<br/>
-                                Duration of Stay: 4 Days<br/>
-                                Number of Beds: 2 🛏️<br/>
                                 Rating: {stars} <br/>
+                                <a href={booking_url}>CLick Here to Reserve this Room</a>
                             </div>
                         </md-card>
                     </md-card-content>
