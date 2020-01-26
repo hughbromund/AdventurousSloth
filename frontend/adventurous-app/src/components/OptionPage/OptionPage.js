@@ -67,7 +67,7 @@ class OptionPage extends Component {
                     }
                 } else if (this.state.price === "cheap") {
                     //console.log("HOT + ACTIVE + CHEAP")
-                    if (rand_int = 0) {
+                    if (rand_int == 0) {
                         city = "GrandCanyonVillage,Arizona"
                         airportCode = "PHX-sky"
                     } else {
