@@ -298,6 +298,8 @@ app.get('/get/attractions/:location', cors(), (req, res) => {
     
             let bod_2 = JSON.parse(body_2);
             let attract_dense = [];
+
+            let size = 0;
     
             bod_2.data.forEach(element => {
                 if (element.ad_position) {
@@ -313,7 +315,7 @@ app.get('/get/attractions/:location', cors(), (req, res) => {
                 });
             });
     
-            res.json(attract_dense);
+            res.json({ 0 : attract_dense[0], 1 : attract_dense[1], 2 : attract_dense[2]});
         });
     }); 
 });
