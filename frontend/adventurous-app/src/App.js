@@ -24,20 +24,19 @@ class App extends Component {
   componentDidMount() {
       // Call our fetch function below once the component mounts
     this.callBackendAPI()
-      .then(res => this.setState({ data: res.express }))
       .catch(err => console.log(err));
 
-      console.log(this.state['data'][0])
+      console.log(this.state['data'])
   }
 
 
   callBackendAPI = async () => {
     console.log("Fetching DATA")
-    const response = await fetch("http://localhost:5000/get/CS%20307");
+    const response = await fetch("http://localhost:5000/get/CS307");
     console.log("Data Fetched")
     const body = await response.json();
     this.setState({data: body})
-    console.log(this.state['data'][0].name)
+    console.log(this.state['data'])
     if (response.status !== 200) {
       throw Error(body.message) 
     }
@@ -46,6 +45,7 @@ class App extends Component {
 
 
   render() {
+    console.log(this.state)
     return (
       <Router history={history}>
         <Switch>
