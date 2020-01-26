@@ -1,6 +1,11 @@
 import React from "react";
 import "./HotelPage.css";
 
+var google_key = "AIzaSyBfqxhwQIerlzGjy1e9iuaPykkUcWngI5A"
+var source = "https://www.google.com/maps/embed/v1/place?key=" + google_key + "&q=Conrad Indianapolis, Indianapolis,IN"
+
+console.log(google_key)
+
 const HotelPage = (props) => {
     const border = {border:'0'}
     const backgroundStyle = {background: '#940a37', color: 'white'}
@@ -15,6 +20,7 @@ const HotelPage = (props) => {
                 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
                 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
                 <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.js"></script>
+                <script type='text/javascript' src='config.js'></script>
                 <md-card>
                     <md-card-content style={backgroundStyle}>
                     <h1 className="h1" style={floatLeft}>
@@ -30,8 +36,8 @@ const HotelPage = (props) => {
                                     width="450"
                                     height="450"
                                     frameborder="0" style={border}
-                                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBfqxhwQIerlzGjy1e9iuaPykkUcWngI5A
-                                        &q=Conrad Indianapolis, Indianapolis,IN" allowfullscreen>
+                                    src={source} 
+                                        allowfullscreen>
                                 </iframe>
                             </div>
                         </md-card>
