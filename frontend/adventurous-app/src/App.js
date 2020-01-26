@@ -18,44 +18,59 @@ import history from './routes/history';
 class App extends Component {
 
   state = {
-    data: null
+    data:[],
+    temp: 'hot',
+    activity: 'active',
+    price: 'expensive',
+    depart: '2020-01-26',
+    arrive: '2020-01-26',
+    currentPage: null
   };
 
-  componentDidMount() {
-      // Call our fetch function below once the component mounts
-    this.callBackendAPI()
-      .then(res => this.setState({ data: res.express }))
-      .catch(err => console.log(err));
+componentDidMount() {
+    // Call our fetch function below once the component mounts
+  this.callBackendAPI()
+    .catch(err => console.log(err));
+}
+
+
+callBackendAPI = async () => {
+  const response = await fetch("http://localhost:5000/get/CS307");
+  const body = await response.json();
+  this.setState({data:body});
+
+  if (response.status !== 200) {
+    throw Error(body.message) 
   }
+  return body;
+};
 
-
-  callBackendAPI = async () => {
-    const response = await fetch("http://localhost:5000/get/attractions/indianapolis");
-    const body = await response.json();
-    console.log(body)
-    if (response.status !== 200) {
-      throw Error(body.message) 
-    }
-    return body;
-  };
-
+  setFinalState = (finalTemp, finalActivity, finalPrice, finalDepart, finalArrive) => {
+    this.setState({temp:finalTemp});
+    this.setState({activity:finalActivity});
+    this.setState({price:finalPrice});
+    this.setState({depart:finalDepart});
+    this.setState({arrive:finalArrive});
+    //console.log(this.state.data);
+  }
 
   render() {
     return (
+      <div>
       <Router history={history}>
         <Switch>
           <Route exact path="/">
             <LaunchPage />
           </Route>
           <Route path="/options">
-            <OptionPage />
+            <OptionPage setFinalState={this.setFinalState}/>
           </Route>
           <Route path="/results">
-            <ResultsPage />
+            <ResultsPage stateObj={this.state}/>
           </Route>
         </Switch>
       </Router>
-
+      </div>
     );
   }
 }
