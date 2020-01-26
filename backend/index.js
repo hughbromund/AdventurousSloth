@@ -300,4 +300,19 @@ app.get('/get/attractions/:location', cors(), (req, res) => {
 });
 //end attraction request
 
+//begin cost request
+app.get('/get/cost/:planeCost/:hotelCost/:departure/:return', cors(), (req, res) => {
+    let planeCost = parsefloat(req.params.planeCost);
+    let hotelCost = parseFloat(req.params.hotelCost);
+    let departureDay = new Date(req.params.departure);
+    let returnDay = new Date(req.params.return);
+
+    let Difference_In_Time = returnDay.getTime() - departureDay.getTime(); 
+
+    // To calculate the no. of days between two dates 
+    let Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24); 
+
+    res.send((Difference_In_Days * 95) + planeCost + hotelCost);
+});
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
