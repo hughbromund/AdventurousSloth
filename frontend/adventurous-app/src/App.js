@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import LaunchPage from './components/launchPage/LaunchPage'
 import './App.css';
-import FlightPage from './resultsPages/FlightPage';
+import ResultsPage from './resultsPages/ResultsPage';
 import OptionPage from './components/OptionPage/OptionPage';
 import routes from './routes/routes';
 
@@ -15,9 +15,9 @@ import {
 
 import history from './routes/history';
 
+
 function App() {
-  return (
-    //<div className="App">
+  return (f
     <Router history={history}>
       <Switch>
         <Route exact path="/">
@@ -28,6 +28,7 @@ function App() {
         </Route>
       </Switch>
     </Router>
+
   );
 }
 
