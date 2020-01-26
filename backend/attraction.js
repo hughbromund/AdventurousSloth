@@ -3,6 +3,7 @@ const request = require('request');
 const app = express();
 const port = process.env.PORT || 5000;
 const config = require('./config.json');
+const cors = require('cors');
 
 app.use(express.json());
 
@@ -43,7 +44,7 @@ headers: {
 }
 };
 
-app.get('/get/attractions/:location', (req, res) => {
+app.get('/get/attractions/:location', cors(), (req, res) => {
     location_options.qs.query = req.params.location;
 
     request(location_options, function(error, response, body) {
