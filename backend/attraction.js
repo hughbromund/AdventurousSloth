@@ -72,6 +72,8 @@ app.get('/get/attractions/:location', (req, res) => {
                     name: element.name,
                     desc: element.description,
                     rating: element.rating,
+                    location: element.name + " " + element.location_string, 
+                    photo_url: element.photo.images.original.url,
                 });
             });
     
