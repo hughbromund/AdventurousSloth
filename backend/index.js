@@ -80,7 +80,7 @@ app.get('/get/flights/:departPort/:arrivalPort/:outboundDate/:inboundDate', (req
         rerequest(get_options, opts, function (error, response, body) {
             if (error) throw new Error(error);
 
-            console.log("try");
+            //console.log("try");
             let bod = JSON.parse(body);
             let itin = (bod.Itineraries);
             let min = (itin)[0];
@@ -205,7 +205,7 @@ app.get('/get/hotels/:location/:date', (req, res) => {
         }
 
         let bod = JSON.parse(body);
-        console.log(hotel_options.qs.location_id);
+        //console.log(hotel_options.qs.location_id);
         hotel_options.qs.location_id = bod.data[0].result_object.location_id;
 
         request(hotel_options, function(error_2, response_2, body_2) {
@@ -295,4 +295,4 @@ app.get('/get/attractions/:location', cors(), (req, res) => {
 });
 //end attraction request
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));
