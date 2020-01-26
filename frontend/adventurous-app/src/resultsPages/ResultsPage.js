@@ -5,6 +5,9 @@ import HotelPage from './HotelPage';
 import AttractionPage from './AttractionPage';
 
 const ResultsPage = (props) => {
+
+    console.log(props)
+
     return(
     <div>
       <FlightPage></FlightPage>

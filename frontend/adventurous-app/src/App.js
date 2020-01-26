@@ -18,7 +18,7 @@ import history from './routes/history';
 class App extends Component {
 
   state = {
-    data: null
+    data: []
   };
 
   componentDidMount() {
@@ -26,13 +26,18 @@ class App extends Component {
     this.callBackendAPI()
       .then(res => this.setState({ data: res.express }))
       .catch(err => console.log(err));
+
+      console.log(this.state['data'][0])
   }
 
 
   callBackendAPI = async () => {
-    const response = await fetch("http://localhost:5000/get/attractions/indianapolis");
+    console.log("Fetching DATA")
+    const response = await fetch("http://localhost:5000/get/CS%20307");
+    console.log("Data Fetched")
     const body = await response.json();
-    console.log(body)
+    this.setState({data: body})
+    console.log(this.state['data'][0].name)
     if (response.status !== 200) {
       throw Error(body.message) 
     }
@@ -51,7 +56,7 @@ class App extends Component {
             <OptionPage />
           </Route>
           <Route path="/results">
-            <ResultsPage />
+            <ResultsPage staeObj = {this.state}/>
           </Route>
         </Switch>
       </Router>
