@@ -75,6 +75,7 @@ const FlightPage = (props) => {
                         </md-card>
                         <md-card style={floatLeft}>
                             Flight Cost: ${price}
+                            <a href={bookingUrl}>CLick Here to Purchase This Ticket</a>
                         </md-card>
                     </md-card-content>
                 </md-card>

@@ -51,49 +51,91 @@ class OptionPage extends Component {
     handleResults = () => {
         // this.calculateCity();
 
+        let rand_int = Math.floor(Math.random() * 1);
+
         let city = '';
         let airportCode = '';
         if (this.state.temp === "hot") {
             if (this.state.activity === "active") {
                 if (this.state.price === "expensive") {
-                    city = 'Los+Angeles';
-                    airportCode = "LAX-sky"
+                    if (rand_int == 0) {
+                        city = 'Los+Angeles';
+                        airportCode = "LAX-sky"
+                    } else {
+                        city = 'Orlando'
+                        airportCode = 'MCO-sky'
+                    }
                 } else if (this.state.price === "cheap") {
                     //console.log("HOT + ACTIVE + CHEAP")
-                    city = "GrandCanyonVillage,Arizona"
-                    airportCode = "PHX-sky"
+                    if (rand_int = 0) {
+                        city = "GrandCanyonVillage,Arizona"
+                        airportCode = "PHX-sky"
+                    } else {
+                        city = "Austin"
+                        airportCode = 'AUS-sky'
+                    }
                 }
             } else if (this.state.activity === "relaxing") {
                 if (this.state.price === "expensive") {
                     //console.log("HOT + RELAXING + EXPENSIVE")
-                    city = "aruba"
-                    airportCode = "AUA-sky"
+                    if (rand_int == 0) {
+                        city = "aruba"
+                        airportCode = "AUA-sky"
+                    } else {
+                        city = 'Miami'
+                        airportCode = 'MIA-sky'
+                    }
                 } else if (this.state.price === "cheap") {
                     //console.log("HOT + RELAXING + CHEAP")
-                    city = "DominicanRepublic"
-                    airportCode = "PUJ-sky"
+                    if (rand_int == 0) {
+                        city = "DominicanRepublic"
+                        airportCode = "PUJ-sky"
+                    } else {
+                        city = 'Houston'
+                        airportCode = 'IAH-sky'
+                    }
                 }
             }
         } else if (this.state.temp === "cold") {
             if (this.state.activity === "active") {
                 if (this.state.price === "expensive") {
                     //console.log("COLD + ACTIVE + EXPENSIVE")
-                    city = "Denver,Colorado"
-                    airportCode = "DEN-sky" 
+                    if (rand_int == 0) {
+                        city = "Denver,Colorado"
+                        airportCode = "DEN-sky" 
+                    } else {
+                        city = 'Tokyo'
+                        airportCode = 'HND-sky'
+                    }
                 } else if (this.state.price === "cheap") {
                     //console.log("COLD + ACTIVE + CHEAP")
-                    city = "Montreal"
-                    airportCode = "YUL-sky"
+                    if (rand_int == 0) {
+                        city = "Montreal"
+                        airportCode = "YUL-sky"
+                    } else {
+                        city = 'Boston'
+                        airportCode = 'BOS-sky'
+                    }
                 }
             } else if (this.state.activity === "relaxing") {
                 if (this.state.price === "expensive") {
                     //console.log("COLD + RELAXING + EXPENSIVE")
-                    city = "Stockholm"
-                    airportCode = "ARN-sky"
+                    if (rand_int == 0) {
+                        city = "Stockholm"
+                        airportCode = "ARN-sky"
+                    } else {
+                        city = 'Toronto'
+                        airportCode = 'YYZ-sky'
+                    }
                 } else if (this.state.price === "cheap") {
                     //console.log("COLD + RELAXING + CHEAP")
-                    city = "Quebec,Canada"
-                    airportCode = "YQB-sky"
+                    if (rand_int == 0) {
+                        city = "Quebec,Canada"
+                        airportCode = "YQB-sky"
+                    } else {
+                        city = 'Seattle'
+                        airportCode = 'SEA-sky'
+                    }
                 }
             }
         }
