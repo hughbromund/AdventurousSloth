@@ -1,0 +1,13 @@
+.style {
+    width: 70%;
+    margin: 0 auto;
+}
+.font {
+    font-family: "Ubuntu";
+}
+.h1 {
+    font-weight: normal;
+}
+.halfwidth {
+    width: 50%;
+}
