@@ -1,12 +1,35 @@
 import React from "react";
 import "./HotelPage.css";
 
-var google_key = "AIzaSyBfqxhwQIerlzGjy1e9iuaPykkUcWngI5A"
-var source = "https://www.google.com/maps/embed/v1/place?key=" + google_key + "&q=Conrad Indianapolis, Indianapolis,IN"
-
-console.log(google_key)
 
 const HotelPage = (props) => {
+
+    const hotelName = props.hotelObj['name']
+    const rating = props.hotelObj['rating']
+    const price = props.hotelObj['price']
+    const location = props.hotelObj['location']
+    const booking_url = props.hotelObj['booking_url']
+
+    var google_key = "AIzaSyBfqxhwQIerlzGjy1e9iuaPykkUcWngI5A"
+    var source = "https://www.google.com/maps/embed/v1/place?key=" + google_key + "&q=" + location
+
+    var stars = ""
+    if (rating >= 1) {
+        stars = stars + "⭐"
+    }
+    if (rating >= 2) {
+        stars = stars + "⭐"
+    }
+    if (rating >= 3) {
+        stars = stars + "⭐"
+    }
+    if (rating >= 4) {
+        stars = stars + "⭐"
+    }
+    if (rating >= 5) {
+        stars = stars + "⭐"
+    }
+
     const border = {border:'0'}
     const backgroundStyle = {background: '#940a37', color: 'white'}
     const backgroundStyle2 = {background: 'white', color: 'black'}
@@ -25,7 +48,7 @@ const HotelPage = (props) => {
                     <md-card-content style={backgroundStyle}>
                     <h1 className="h1" style={floatLeft}>
                         <b>Hotel Details</b>
-                        <span> | Conrad Indianapols</span>
+                        <span> | {hotelName}</span>
                     </h1>
                     <h1 style={floatRight}>🏨</h1>
                     </md-card-content>
@@ -43,13 +66,13 @@ const HotelPage = (props) => {
                         </md-card>
                         <md-card style={floatLeft}>
                             <div>
-                                <b>Conrad Indianapolis</b>
+                                <b>{hotelName}</b>
                             </div>
                             <div >
-                                Price per Night: $85 - $120<br/>
+                                Price per Night: {price}<br/>
                                 Duration of Stay: 4 Days<br/>
                                 Number of Beds: 2 🛏️<br/>
-                                Rating: ⭐⭐⭐⭐⭐ <br/>
+                                Rating: {stars} <br/>
                             </div>
                         </md-card>
                     </md-card-content>
