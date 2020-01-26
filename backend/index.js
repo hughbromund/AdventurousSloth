@@ -1,25 +1,26 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
+const cors = require('cors');
 
 app.use(express.json());
 
 let people = [
-    {class: 'CS 307', name: 'Daniel', age: 19},
-    {class: 'CS 252', name: 'Hugh', age: 20},
-    {class: 'CS 252', name: 'Peyton', age: 16},
-    {class: 'CS 307', name: 'Aditya', age: 3},
+    {class: 'CS307', name: 'Daniel', age: 19},
+    {class: 'CS252', name: 'Hugh', age: 20},
+    {class: 'CS252', name: 'Peyton', age: 16},
+    {class: 'CS307', name: 'Aditya', age: 3},
 ]
 
-app.get('/', (req, res) => {
+app.get('/', cors(), (req, res) => {
     res.send('Hello World!');
 });
 
-app.get('/abc/def', (req, res) => {
+app.get('/abc/def', cors(), (req, res) => {
     res.send([1, 2, 3]);
 });
 
-app.get('/get/:class', (req, res) => {
+app.get('/get/:class', cors(), (req, res) => {
     let result = people.filter(c => c.class === req.params.class);
     if (!result) {
         res.status(404).send("Could not find class name :(");
