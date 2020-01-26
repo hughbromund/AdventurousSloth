@@ -16,22 +16,26 @@ import {
 import history from './routes/history';
 
 class App extends Component {
-  
+
   state = {
     temp: 'hot',
     activity: 'active',
     price: 'expensive',
     depart: '2020-01-26',
     arrive: '2020-01-26',
-    currentPage: null
+    currentPage: null,
+    city: 'Chicago',
+    airportCode: 'ORD-sky'
   };
 
-  setFinalState = (finalTemp, finalActivity, finalPrice, finalDepart, finalArrive) => {
+  setFinalState = (finalTemp, finalActivity, finalPrice, finalDepart, finalArrive, finalAC, finalCity) => {
     this.setState({temp:finalTemp});
     this.setState({activity:finalActivity});
     this.setState({price:finalPrice});
     this.setState({depart:finalDepart});
     this.setState({arrive:finalArrive});
+    this.setState({airportCode:finalAC});
+    this.setState({city:finalCity});
     //console.log(this.state.data);
   }
 

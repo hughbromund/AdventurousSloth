@@ -36,7 +36,7 @@ return body;
 };
 
 callHotelAPI = async () => {
-const response = await fetch("http://localhost:5000/get/CS307");
+const response = await fetch("http://localhost:5000/get/CS307/");
 const body = await response.json();
 this.setState({hotelData:body});
 
@@ -57,16 +57,17 @@ if (response.status !== 200) {
 return body;
 };
 
+
   render() {
     
-    console.log(this.state.hotelData);
+    console.log(this.props.stateObj);
 
     return(
       <div>
-        <FlightPage></FlightPage>
-        <HotelPage></HotelPage>
-        <AttractionPage></AttractionPage>
-        <FlightPage></FlightPage>
+        <FlightPage ></FlightPage>
+        <HotelPage hotelObj={this.state['hotelData']}></HotelPage>
+        <AttractionPage attractionsObj={this.state['attractionsData']}></AttractionPage>
+        <FlightPage flightObj={this.state['flightData']}></FlightPage>
       </div>
       )
   }
