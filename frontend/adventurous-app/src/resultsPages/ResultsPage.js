@@ -63,6 +63,10 @@ callFlightAPI = async () => {
       }
       count = count + 1
       if (count >= 5) {
+        console.log("http://localhost:5000/get/error")
+        response = await fetch("http://localhost:5000/get/error");
+        body = await response.json();
+        this.setState({flightData:body});
         break
       }
       console.log("COUNT: " + count)
