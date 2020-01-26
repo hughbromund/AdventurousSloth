@@ -3,8 +3,6 @@ import "./AttractionPage.css";
 
 const AttractionPage = (props) => {
 
-    console.log(props)
-
     const location = props.attractionsObj['location']
     const description = props.attractionsObj['desc']
     const name = props.attractionsObj['name']
@@ -36,6 +34,7 @@ const AttractionPage = (props) => {
     const backgroundStyle2 = {background: 'white', color: 'black'}
     const floatRight = {float: 'right'}
     const floatLeft = {float: 'left'}
+
     return(
         <div className="font"> 
             <div className="style">
@@ -75,7 +74,6 @@ const AttractionPage = (props) => {
                             </div>
                         </md-card>
                 </md-card-content>
-
         </md-card>
         </div>
         </div>

@@ -68,16 +68,37 @@ if (response.status !== 200) {
 return body;
 };
 
+// {githubData.map((gh, i)=>(
+//   <li key={i}>
+//      {gh.title}
+//   </li>
+// ))}
+
+
+  // tempFunc = () => {
+
+  //   return (
+  //     this.state.attractionsData.map((obj, i) => {
+  //       <AttractionPage key={i} attractionsObj={obj}/>
+  //     }
+      
+  //   ))
+
+  // }
+
+  //<AttractionPage attractionsObj={this.state['attractionsData']}></AttractionPage>
 
   render() {
-    
-    console.log(this.state['flightData']);
+
+    //var code = this.tempFunc();
 
     return(
       <div>
         <FlightPage isReturn = {false} flightObj={this.state['flightData']}></FlightPage>
         <HotelPage hotelObj={this.state['hotelData']}></HotelPage>
-        <AttractionPage attractionsObj={this.state['attractionsData']}></AttractionPage>
+        {Object.keys(this.state.attractionsData).map((key) => (
+          <AttractionPage attractionsObj={this.state.attractionsData[key]}/>
+        ))}
         <FlightPage isReturn = {true} flightObj={this.state['flightData']}></FlightPage>
         <div className="homeFromResults" onClick={() => history.push('/')}>
                     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin"></link>
