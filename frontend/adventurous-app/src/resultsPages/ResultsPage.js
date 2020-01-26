@@ -15,8 +15,8 @@ class ResultsPage extends Component {
 
 componentDidMount() {
   // Call our fetch function below once the component mounts
-// this.callAttractionsAPI()
-//   .catch(err => console.log(err));
+this.callAttractionsAPI()
+  .catch(err => console.log(err));
 this.callHotelAPI()
   .catch(err => console.log(err));
 // this.callFlightAPI()
@@ -25,9 +25,10 @@ this.callHotelAPI()
 
 
 callAttractionsAPI = async () => {
-const response = await fetch("http://localhost:5000/get/CS307");
-const body = await response.json();
-this.setState({attractionsData:body});
+  console.log("http://localhost:5000/get/attractions/" + this.props.stateObj['city'])
+  const response = await fetch("http://localhost:5000/get/attractions/" + this.props.stateObj['city']);
+  const body = await response.json();
+  this.setState({attractionsData:body});
 
 if (response.status !== 200) {
   throw Error(body.message) 
@@ -36,13 +37,13 @@ return body;
 };
 
 callHotelAPI = async () => {
-  console.log("http://localhost:5000/get/hotels/" + this.props.stateObj['city'] + "/" + this.props.stateObj['depart'])
-const response = await fetch("http://localhost:5000/get/hotels/" + this.props.stateObj['city'] + "/" + this.props.stateObj['depart']);
-const body = await response.json();
-this.setState({hotelData:body});
+    console.log("http://localhost:5000/get/hotels/" + this.props.stateObj['city'] + "/" + this.props.stateObj['depart'])
+    const response = await fetch("http://localhost:5000/get/hotels/" + this.props.stateObj['city'] + "/" + this.props.stateObj['depart']);
+    const body = await response.json();
+    this.setState({hotelData:body});
 
 if (response.status !== 200) {
-  throw Error(body.message) 
+    throw Error(body.message) 
 }
 return body;
 };
@@ -61,7 +62,7 @@ return body;
 
   render() {
     
-    console.log(this.props.stateObj);
+    console.log(this.state['attractionsData']);
 
     return(
       <div>

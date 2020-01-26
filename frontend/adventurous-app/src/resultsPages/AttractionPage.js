@@ -2,6 +2,35 @@ import React from "react";
 import "./AttractionPage.css";
 
 const AttractionPage = (props) => {
+
+    console.log(props)
+
+    const location = props.attractionsObj['location']
+    const description = props.attractionsObj['desc']
+    const name = props.attractionsObj['name']
+    const rating = props.attractionsObj['rating']
+
+
+    var google_key = "AIzaSyBfqxhwQIerlzGjy1e9iuaPykkUcWngI5A"
+    var source = "https://www.google.com/maps/embed/v1/place?key=" + google_key + "&q=" + location
+
+    var stars = ""
+    if (rating >= 1) {
+        stars = stars + "⭐"
+    }
+    if (rating >= 2) {
+        stars = stars + "⭐"
+    }
+    if (rating >= 3) {
+        stars = stars + "⭐"
+    }
+    if (rating >= 4) {
+        stars = stars + "⭐"
+    }
+    if (rating >= 5) {
+        stars = stars + "⭐"
+    }
+
     const border = {border:'0'}
     const backgroundStyle = {background: '#940a37', color: 'white'}
     const backgroundStyle2 = {background: 'white', color: 'black'}
@@ -19,7 +48,7 @@ const AttractionPage = (props) => {
                 <md-card-content style={backgroundStyle}>
                 <h1 className="h1" style={floatLeft}>
                     <b>Attraction Details</b>
-                    <span> | The Art Institute of Chicago</span>
+                    <span> | {name}</span>
                 </h1>
                 <h1 style={floatRight}>🏟️</h1>
                 </md-card-content>
@@ -30,20 +59,19 @@ const AttractionPage = (props) => {
                             width="450"
                             height="450"
                             frameborder="0" style={border}
-                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBfqxhwQIerlzGjy1e9iuaPykkUcWngI5A
-                                &q=The Art Institute of Chicago Chicago, Illinois" allowfullscreen>
+                            src={source} allowfullscreen>
                         </iframe>
                     </div>
                 </md-card>
                 <md-card style={floatLeft}>
                             <div>
-                                <b>The Art Institute of Chicago</b>
+                                <b>{name}</b>
                             </div>
                             <div>
-                                Rating: ⭐⭐⭐⭐⭐ <br/>
+                                Rating: {stars} <br/>
                             </div>
                             <div>
-                                Description: See why the Art Institute of Chicago is the only museum in the world to be top-ranked by TripAdvisor four years in a row! Experience the greatest Impressionist collection outside Paris, and view contemporary masterpieces in the spectacular Modern Wing. Stand before classics like Nighthawks, and travel the globe through galleries devoted to the art of ancient Greece, Japan, Africa, and the Americas.
+                                Description: {description}
                             </div>
                         </md-card>
                 </md-card-content>
