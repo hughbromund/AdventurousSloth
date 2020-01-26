@@ -16,6 +16,28 @@ const FlightPage = (props) => {
     const departureAirport = props.flightObj['departureAirport']
     const arrivalAirport = props.flightObj['arrivalAirport']
 
+
+
+    let carrierName = "";
+    let origin = "";
+    let dest = "";
+    let departureTime = "";
+    let arrivalTime = "";
+
+    if (props.isReturn) {
+        carrierName = carrierNameDestination;
+        origin = arrivalAirport;
+        dest = departureAirport;
+        departureTime = departureTimeDestination;
+        arrivalTime = arrivalTimeOrigin;
+    } else {
+        carrierName = carrierNameOrigin
+        origin = departureAirport;
+        dest = arrivalAirport;
+        departureTime = departureTimeOrigin;
+        arrivalTime = arrivalTimeDestination;
+    }
+
     const floatLeft = {float: 'left'}
     const floatRight = {float: 'right'}
     const color = {color: 'white'}
@@ -36,7 +58,7 @@ const FlightPage = (props) => {
                     <md-card-content style={backgroundStyle}>
                         <h1 className="h1" style={floatLeft}>
                             <b>Flight Details</b>
-                            <span> | {carrierNameOrigin}</span>
+                            <span> | {carrierName}</span>
                         </h1>
                         <h1 style={floatRight}>✈️</h1>
                     </md-card-content>
@@ -44,11 +66,11 @@ const FlightPage = (props) => {
                     <md-card-content style={backgroundStyle2}>
                         <md-card style={floatLeft}>
                             <md-card-content>
-                                <b>🛫 Departure </b> at {departureTimeOrigin} from<br />
-                                    <b>{departureAirport}</b><br/><br/>
+                                <b>🛫 Departure </b> at {departureTime} from<br />
+                                    <b>{origin}</b><br/><br/>
                             
-                                <b>🛬 Arrival </b> at {arrivalTimeDestination} in<br />
-                                <b>{arrivalAirport}</b> 
+                                <b>🛬 Arrival </b> at {arrivalTime} in<br />
+                                <b>{dest}</b> 
                             </md-card-content>
                         </md-card>
                         <md-card style={floatLeft}>

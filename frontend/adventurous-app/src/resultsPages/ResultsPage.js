@@ -52,8 +52,8 @@ callFlightAPI = async () => {
   var response = null
   var body = null
     do {
-    console.log("http://localhost:5000/get/flights/IND-sky/" + this.props.stateObj['airportCode'] + "/" + this.props.stateObj['depart'] + "/" + this.props.stateObj['arrive'])
-    response = await fetch("http://localhost:5000/get/flights/IND-sky/" + this.props.stateObj['airportCode'] + "/" + this.props.stateObj['depart'] + "/" + this.props.stateObj['arrive']);
+    console.log("http://localhost:5000/get/flights/ORD-sky/" + this.props.stateObj['airportCode'] + "/" + this.props.stateObj['depart'] + "/" + this.props.stateObj['arrive'])
+    response = await fetch("http://localhost:5000/get/flights/ORD-sky/" + this.props.stateObj['airportCode'] + "/" + this.props.stateObj['depart'] + "/" + this.props.stateObj['arrive']);
     body = await response.json();
     this.setState({flightData:body});
     if (Object.entries(body).length === 0 && body.constructor === Object) {
@@ -74,10 +74,10 @@ return body;
 
     return(
       <div>
-        <FlightPage flightObj={this.state['flightData']}></FlightPage>
+        <FlightPage isReturn = {false} flightObj={this.state['flightData']}></FlightPage>
         <HotelPage hotelObj={this.state['hotelData']}></HotelPage>
         <AttractionPage attractionsObj={this.state['attractionsData']}></AttractionPage>
-        <FlightPage flightObj={this.state['flightData']}></FlightPage>
+        <FlightPage isReturn = {true} flightObj={this.state['flightData']}></FlightPage>
       </div>
       )
   }
