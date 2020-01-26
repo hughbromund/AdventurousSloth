@@ -26,6 +26,9 @@ function App() {
         <Route path="/options">
           <OptionPage />
         </Route>
+        <Route path="/results">
+          <ResultsPage />
+        </Route>
       </Switch>
     </Router>
 

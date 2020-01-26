@@ -64,7 +64,7 @@ class OptionPage extends Component {
                     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin"></link>
                     Home
                 </div>
-                <div className="resultsButton">
+                <div className="resultsButton" onClick={() => history.push('/results')}>
                     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin"></link>
                     Results
                 </div>
