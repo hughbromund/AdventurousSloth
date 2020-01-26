@@ -243,7 +243,7 @@ app.get('/get/hotels/:location/:date', cors(), (req, res) => {
         
     
             bod_2.data.forEach(element => {
-                if (element.hac_offers.offers[0] == "undefined") {
+                if (element.hac_offers.offers[0] === "undefined") {
                     hotel_dense.push({
                         name: element.name,
                         rating: element.rating,
