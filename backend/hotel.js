@@ -81,6 +81,7 @@ app.get('/get/hotels/:location/:date', (req, res) => {
                     rating: element.rating,
                     price: element.price,
                     location: element.name + ' ' + element.location_string,
+                    booking_url: element.hac_offers.offers[0].link,
                 });
             });
     
