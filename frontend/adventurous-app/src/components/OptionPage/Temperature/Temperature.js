@@ -11,9 +11,13 @@ class Temperature extends Component {
         this.props.choose('cold');
     }
 
+    goToNextPage = () => {
+        this.props.select(1);
+    }
+
     render() {
         return (
-            <div className="wrapper">
+            <div className="wrapper" onClick={this.goToNextPage}>
                 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin"></link>
                 <div className="leftDivTemp" onClick={this.sendHotData}> 
                     <h1>{this.props.leftLabel}</h1>

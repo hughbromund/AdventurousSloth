@@ -219,6 +219,7 @@ const ReactPageScroller = ({
   useEffect(() => {
     pageContainer.current.addEventListener(Events.TOUCHMOVE, touchMove);
     pageContainer.current.addEventListener(Events.KEYDOWN, keyPress);
+
     return () => {
       pageContainer.current.removeEventListener(Events.TOUCHMOVE, touchMove);
       pageContainer.current.removeEventListener(Events.KEYDOWN, keyPress);
