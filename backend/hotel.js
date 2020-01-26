@@ -1,5 +1,7 @@
 const express = require('express');
 const request = require('request');
+const config = require('./config.json');
+
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -28,7 +30,7 @@ var hotel_options = {
     },
     headers: {
       'x-rapidapi-host': 'tripadvisor1.p.rapidapi.com',
-      'x-rapidapi-key': '34e4098176mshec364d2c1499529p103ed0jsnc7560e74c41b'
+      'x-rapidapi-key': config.rapidapi_key,
     }
   };
 
@@ -47,7 +49,7 @@ qs: {
 },
 headers: {
     'x-rapidapi-host': 'tripadvisor1.p.rapidapi.com',
-    'x-rapidapi-key': '34e4098176mshec364d2c1499529p103ed0jsnc7560e74c41b'
+    'x-rapidapi-key': config.rapidapi_key,
 }
 };
 
