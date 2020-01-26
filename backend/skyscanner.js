@@ -48,8 +48,9 @@ app.get('/get/flights/:departPort/:arrivalPort/:outboundDate/:inboundDate', (req
         if (error) throw new Error(error);
 
         let updated_url = response.headers.location;
-        if (!updated_url) {
-            return -1;
+
+        if (updated_url == undefined) {
+            res.json({});
         }
 
         updated_url = updated_url.substring(updated_url.lastIndexOf('/'));
@@ -71,12 +72,18 @@ app.get('/get/flights/:departPort/:arrivalPort/:outboundDate/:inboundDate', (req
             }
           };
 
-        request(get_options, opts, function (error, response, body) {
-            if (error) throw new Error(error);
+        request(get_options, opts, function (error_2, response, body) {
+            if (error_2) throw new Error(error_2);
 
             console.log("try");
             let bod = JSON.parse(body);
             let itin = (bod.Itineraries);
+
+            if (itin == undefined) {
+                res.json({});
+            }
+
+            console.log(itin);
             let min = (itin)[0];
             let minCost = (min.PricingOptions)[0].Price;
             itin.forEach(element => {
