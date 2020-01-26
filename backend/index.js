@@ -243,13 +243,13 @@ app.get('/get/hotels/:location/:date', cors(), (req, res) => {
         
     
             bod_2.data.forEach(element => {
-                if (element.hac_offers.offers[0].link !== "undefined") {
+                if (element.hac_offers.offers[0] == "undefined") {
                     hotel_dense.push({
                         name: element.name,
                         rating: element.rating,
                         price: element.price,
                         location: (element.name + ' ' + element.location_string).replace('&', ''),
-                        booking_url: element.hac_offers.offers[0].link,
+                        booking_url: "no booking url found",
                     });
                 }
                 else {
@@ -258,7 +258,7 @@ app.get('/get/hotels/:location/:date', cors(), (req, res) => {
                         rating: element.rating,
                         price: element.price,
                         location: (element.name + ' ' + element.location_string).replace('&', ''),
-                        booking_url: "no booking url found",
+                        booking_url: element.hac_offers.offers[0].link,
                     });
                 }
             });
