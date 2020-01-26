@@ -58,7 +58,7 @@ class OptionPage extends Component {
         if (this.state.temp === "hot") {
             if (this.state.activity === "active") {
                 if (this.state.price === "expensive") {
-                    if (rand_int == 0) {
+                    if (rand_int === 0) {
                         city = 'Los+Angeles';
                         airportCode = "LAX-sky"
                     } else {
@@ -67,7 +67,7 @@ class OptionPage extends Component {
                     }
                 } else if (this.state.price === "cheap") {
                     //console.log("HOT + ACTIVE + CHEAP")
-                    if (rand_int == 0) {
+                    if (rand_int === 0) {
                         city = "GrandCanyonVillage,Arizona"
                         airportCode = "PHX-sky"
                     } else {
@@ -78,7 +78,7 @@ class OptionPage extends Component {
             } else if (this.state.activity === "relaxing") {
                 if (this.state.price === "expensive") {
                     //console.log("HOT + RELAXING + EXPENSIVE")
-                    if (rand_int == 0) {
+                    if (rand_int === 0) {
                         city = "aruba"
                         airportCode = "AUA-sky"
                     } else {
@@ -100,7 +100,7 @@ class OptionPage extends Component {
             if (this.state.activity === "active") {
                 if (this.state.price === "expensive") {
                     //console.log("COLD + ACTIVE + EXPENSIVE")
-                    if (rand_int == 0) {
+                    if (rand_int === 0) {
                         city = "Denver,Colorado"
                         airportCode = "DEN-sky" 
                     } else {
@@ -120,7 +120,7 @@ class OptionPage extends Component {
             } else if (this.state.activity === "relaxing") {
                 if (this.state.price === "expensive") {
                     //console.log("COLD + RELAXING + EXPENSIVE")
-                    if (rand_int == 0) {
+                    if (rand_int === 0) {
                         city = "Stockholm"
                         airportCode = "ARN-sky"
                     } else {
@@ -129,7 +129,7 @@ class OptionPage extends Component {
                     }
                 } else if (this.state.price === "cheap") {
                     //console.log("COLD + RELAXING + CHEAP")
-                    if (rand_int == 0) {
+                    if (rand_int === 0) {
                         city = "Quebec,Canada"
                         airportCode = "YQB-sky"
                     } else {
