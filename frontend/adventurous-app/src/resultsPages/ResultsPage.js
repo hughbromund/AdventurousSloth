@@ -52,14 +52,20 @@ return body;
 callFlightAPI = async () => {
   var response = null
   var body = null
+  var count = 0
     do {
-    console.log("http://localhost:5000/get/flights/ORD-sky/" + this.props.stateObj['airportCode'] + "/" + this.props.stateObj['depart'] + "/" + this.props.stateObj['arrive'])
-    response = await fetch("http://localhost:5000/get/flights/ORD-sky/" + this.props.stateObj['airportCode'] + "/" + this.props.stateObj['depart'] + "/" + this.props.stateObj['arrive']);
-    body = await response.json();
-    this.setState({flightData:body});
-    if (Object.entries(body).length === 0 && body.constructor === Object) {
-      console.log("EMPTY RETURN")
-    }
+      console.log("http://localhost:5000/get/flights/ORD-sky/" + this.props.stateObj['airportCode'] + "/" + this.props.stateObj['depart'] + "/" + this.props.stateObj['arrive'])
+      response = await fetch("http://localhost:5000/get/flights/ORD-sky/" + this.props.stateObj['airportCode'] + "/" + this.props.stateObj['depart'] + "/" + this.props.stateObj['arrive']);
+      body = await response.json();
+      this.setState({flightData:body});
+      if (Object.entries(body).length === 0 && body.constructor === Object) {
+        console.log("EMPTY RETURN")
+      }
+      count = count + 1
+      if (count >= 5) {
+        break
+      }
+      console.log("COUNT: " + count)
     } while (Object.entries(body).length === 0 && body.constructor === Object)
 
 if (response.status !== 200) {
