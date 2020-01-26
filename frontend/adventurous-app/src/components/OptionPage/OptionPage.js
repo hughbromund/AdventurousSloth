@@ -13,10 +13,9 @@ class OptionPage extends Component {
         temp: 'hot',
         activity: 'active',
         price: 'expensive',
-        depart: null,
-        arrive: null,
-        currentPage: null,
-        destination: null
+        depart: '2020-01-26',
+        arrive: '2020-01-26',
+        currentPage: null
     };
 
     callbackTemp = (childData) => {
@@ -42,7 +41,6 @@ class OptionPage extends Component {
     handlePageChange = (number) => {
         this.setState({ currentPage: number });
     }
-
     calculateCity = () => {
         var city = null
         var airportCode = null
@@ -93,6 +91,13 @@ class OptionPage extends Component {
         }
         console.log(city)
         console.log(airportCode)
+
+    handleResults = () => {
+        this.props.setFinalState(this.state.temp, this.state.activity, this.state.price, 
+                                this.state.depart, this.state.arrive);
+        //console.log("H: " + this.state.depart);
+        history.push('/results');
+
     }
 
     render() {
@@ -111,14 +116,15 @@ class OptionPage extends Component {
                                 rightLabel="Expensive" choose={this.callbackPrice}>
                     </Price>
                     <DatePicker className='FullHeight' leftLabel="Depart" select={this.handlePageChange}
-                                rightLabel="Arrive" chooseDepart={this.callBackDeparture} chooseArrive={this.callBackArrival}>
+                                rightLabel="Arrive" chooseDepart={this.callBackDeparture} 
+                                chooseArrive={this.callBackArrival}>
                     </DatePicker>
                 </ReactPageScroller>
                 <div className="homeButton" onClick={() => history.push('/')}>
                     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin"></link>
                     Home
                 </div>
-                <div className="resultsButton" onClick={() => history.push('/results')}>
+                <div className="resultsButton" onClick={this.handleResults}>
                     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin"></link>
                     Results
                 </div>

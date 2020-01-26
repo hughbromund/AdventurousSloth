@@ -51,10 +51,6 @@ class DatePicker extends Component {
         this.props.chooseArrive(year + "-" + monthString + "-" + dayString);
     }
 
-    goToNextPage = () => {
-
-    }
-
     handleDeparture = date => {
         this.setState({ departureDate:date });
         this.sendDepartureData();
@@ -74,11 +70,11 @@ class DatePicker extends Component {
                 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin"></link>
                 <div className="leftDivDate"> 
                     <h1>{this.props.leftLabel}</h1>
-                    <Picker className="picker" onChange={this.handleDeparture} value={this.state.departureDate} />
+                    <Picker className="picker" onChange={this.handleDeparture} value={this.state.departureDate} clearIcon={null} returnValue="end"/>
                 </div>
                 <div className="rightDivDate"> 
                     <h1>{this.props.rightLabel}</h1>
-                    <Picker className="picker" onChange={this.handleArrival} value={this.state.arrivalDate} />
+                    <Picker className="picker" onChange={this.handleArrival} value={this.state.arrivalDate} clearIcon={null} returnValue="end"/>
                 </div>
             </div>
         );
