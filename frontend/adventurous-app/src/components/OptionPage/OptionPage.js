@@ -9,16 +9,20 @@ import DatePicker from './DatePicker/DatePicker';
 
 class OptionPage extends Component {
 
-    state = {
-        temp: 'hot',
-        activity: 'active',
-        price: 'expensive',
-        depart: '2020-01-26',
-        arrive: '2020-01-26',
-        currentPage: null,
-        cityState: 'Chicago',
-        AC: 'ORD-sky'
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            temp: 'hot',
+            activity: 'active',
+            price: 'expensive',
+            depart: '2020-01-26',
+            arrive: '2020-01-26',
+            currentPage: null,
+            cityState: 'Chicago',
+            AC: 'ORD-sky'
+        };
+    }
+
 
     callbackTemp = (childData) => {
         this.setState({temp:childData});
@@ -46,64 +50,108 @@ class OptionPage extends Component {
 
     calculateCity = () => {
 
-        // let city = null
-        // let airportCode = null
+        let city = '';
+        let airportCode = '';
         if (this.state.temp === "hot") {
             if (this.state.activity === "active") {
                 if (this.state.price === "expensive") {
-                    //console.log("HOT + ACTIVE + EXPENSIVE")
-                    this.setState({cityState:"Los Angeles, California"});
-                    console.log('test:' + this.state.cityState);
-                    // airportCode = "LAX-sky"
+                    city = 'Los Angeles, California';
+                    airportCode = "LAX-sky"
                 } else if (this.state.price === "cheap") {
                     //console.log("HOT + ACTIVE + CHEAP")
-                    // city = "Grand Canyon Village, Arizona"
-                    // airportCode = "PHX-sky"
+                    city = "Grand Canyon Village, Arizona"
+                    airportCode = "PHX-sky"
                 }
             } else if (this.state.activity === "relaxing") {
                 if (this.state.price === "expensive") {
                     //console.log("HOT + RELAXING + EXPENSIVE")
-                    // city = "Oahu, Hawaii"
-                    // airportCode = "HNL-sky"
+                    city = "Oahu, Hawaii"
+                    airportCode = "HNL-sky"
                 } else if (this.state.price === "cheap") {
                     //console.log("HOT + RELAXING + CHEAP")
-                    // city = "Santo Domingo, Dominican Republic"
-                    // airportCode = "PUJ-sky"
+                    city = "Santo Domingo, Dominican Republic"
+                    airportCode = "PUJ-sky"
                 }
             }
         } else if (this.state.temp === "cold") {
             if (this.state.activity === "active") {
                 if (this.state.price === "expensive") {
                     //console.log("COLD + ACTIVE + EXPENSIVE")
-                    // city = "Denver, Colorado"
-                    // airportCode = "DEN-sky" 
+                    city = "Denver, Colorado"
+                    airportCode = "DEN-sky" 
                 } else if (this.state.price === "cheap") {
                     //console.log("COLD + ACTIVE + CHEAP")
-                    // city = "Pierre, South Dakota"
-                    // airportCode = "PIR-sky"
+                    city = "Pierre, South Dakota"
+                    airportCode = "PIR-sky"
                 }
             } else if (this.state.activity === "relaxing") {
                 if (this.state.price === "expensive") {
                     //console.log("COLD + RELAXING + EXPENSIVE")
-                    // city = "Reykjavik, Iceland"
-                    // airportCode = "RKV-sky"
+                    city = "Reykjavik, Iceland"
+                    airportCode = "RKV-sky"
                 } else if (this.state.price === "cheap") {
                     //console.log("COLD + RELAXING + CHEAP")
-                    // city = "Quebec, Canada"
-                    // airportCode = "YQB-sky"
+                    city = "Quebec, Canada"
+                    airportCode = "YQB-sky"
                 }
             }
         }
       }
 
     handleResults = () => {
-        this.calculateCity();
+        // this.calculateCity();
+
+        let city = '';
+        let airportCode = '';
+        if (this.state.temp === "hot") {
+            if (this.state.activity === "active") {
+                if (this.state.price === "expensive") {
+                    city = 'Los Angeles, California';
+                    airportCode = "LAX-sky"
+                } else if (this.state.price === "cheap") {
+                    //console.log("HOT + ACTIVE + CHEAP")
+                    city = "Grand Canyon Village, Arizona"
+                    airportCode = "PHX-sky"
+                }
+            } else if (this.state.activity === "relaxing") {
+                if (this.state.price === "expensive") {
+                    //console.log("HOT + RELAXING + EXPENSIVE")
+                    city = "Oahu, Hawaii"
+                    airportCode = "HNL-sky"
+                } else if (this.state.price === "cheap") {
+                    //console.log("HOT + RELAXING + CHEAP")
+                    city = "Santo Domingo, Dominican Republic"
+                    airportCode = "PUJ-sky"
+                }
+            }
+        } else if (this.state.temp === "cold") {
+            if (this.state.activity === "active") {
+                if (this.state.price === "expensive") {
+                    //console.log("COLD + ACTIVE + EXPENSIVE")
+                    city = "Denver, Colorado"
+                    airportCode = "DEN-sky" 
+                } else if (this.state.price === "cheap") {
+                    //console.log("COLD + ACTIVE + CHEAP")
+                    city = "Pierre, South Dakota"
+                    airportCode = "PIR-sky"
+                }
+            } else if (this.state.activity === "relaxing") {
+                if (this.state.price === "expensive") {
+                    //console.log("COLD + RELAXING + EXPENSIVE")
+                    city = "Reykjavik, Iceland"
+                    airportCode = "RKV-sky"
+                } else if (this.state.price === "cheap") {
+                    //console.log("COLD + RELAXING + CHEAP")
+                    city = "Quebec, Canada"
+                    airportCode = "YQB-sky"
+                }
+            }
+        }
+
         this.props.setFinalState(this.state.temp, this.state.activity, this.state.price, 
-                                this.state.depart, this.state.arrive, this.state.AC, this.state.cityState);
+                                this.state.depart, this.state.arrive, airportCode, city);
         //console.log("H: " + this.state.depart);
         history.push('/results');
-
-
     }
 
     render() {
