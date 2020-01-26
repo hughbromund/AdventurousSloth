@@ -17,7 +17,7 @@ import history from './routes/history';
 
 
 function App() {
-  return (f
+  return (
     <Router history={history}>
       <Switch>
         <Route exact path="/">
