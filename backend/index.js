@@ -227,7 +227,7 @@ app.get('/get/hotels/:location/:date', cors(), (req, res) => {
                     name: element.name,
                     rating: element.rating,
                     price: element.price,
-                    location: element.name + ' ' + element.location_string,
+                    location: (element.name + ' ' + element.location_string).replace('&', ''),
                     booking_url: element.hac_offers.offers[0].link,
                 });
             });
@@ -289,7 +289,7 @@ app.get('/get/attractions/:location', cors(), (req, res) => {
                     name: element.name,
                     desc: element.description,
                     rating: element.rating,
-                    location: element.name + " " + element.location_string, 
+                    location: (element.name + " " + element.location_string).replace('&', ''), 
                     photo_url: element.photo.images.original.url,
                 });
             });
