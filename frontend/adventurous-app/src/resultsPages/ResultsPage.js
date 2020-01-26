@@ -15,12 +15,12 @@ class ResultsPage extends Component {
 
 componentDidMount() {
   // Call our fetch function below once the component mounts
-this.callAttractionsAPI()
-  .catch(err => console.log(err));
-this.callHotelAPI()
-  .catch(err => console.log(err));
-// this.callFlightAPI()
+// this.callAttractionsAPI()
 //   .catch(err => console.log(err));
+// this.callHotelAPI()
+//   .catch(err => console.log(err));
+this.callFlightAPI()
+  .catch(err => console.log(err));
 }
 
 
@@ -49,9 +49,17 @@ return body;
 };
 
 callFlightAPI = async () => {
-const response = await fetch("http://localhost:5000/get/CS307");
-const body = await response.json();
-this.setState({flightData:body});
+  var response = null
+  var body = null
+    do {
+    console.log("http://localhost:5000/get/flights/IND-sky/" + this.props.stateObj['airportCode'] + "/" + this.props.stateObj['depart'] + "/" + this.props.stateObj['arrive'])
+    response = await fetch("http://localhost:5000/get/flights/IND-sky/" + this.props.stateObj['airportCode'] + "/" + this.props.stateObj['depart'] + "/" + this.props.stateObj['arrive']);
+    body = await response.json();
+    this.setState({flightData:body});
+    if (Object.entries(body).length === 0 && body.constructor === Object) {
+      console.log("EMPTY RETURN")
+    }
+    } while (Object.entries(body).length === 0 && body.constructor === Object)
 
 if (response.status !== 200) {
   throw Error(body.message) 
@@ -62,11 +70,11 @@ return body;
 
   render() {
     
-    console.log(this.state['attractionsData']);
+    console.log(this.state['flightData']);
 
     return(
       <div>
-        <FlightPage ></FlightPage>
+        <FlightPage flightObj={this.state['flightData']}></FlightPage>
         <HotelPage hotelObj={this.state['hotelData']}></HotelPage>
         <AttractionPage attractionsObj={this.state['attractionsData']}></AttractionPage>
         <FlightPage flightObj={this.state['flightData']}></FlightPage>

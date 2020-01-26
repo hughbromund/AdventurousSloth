@@ -2,6 +2,20 @@ import React from "react";
 import "./FlightPage.css";
 
 const FlightPage = (props) => {
+
+    console.log(props)
+
+    const departureTimeOrigin = props.flightObj['departureTimeOrigin']
+    const departureTimeDestination = props.flightObj['departureTimeDestination']
+    const arrivalTimeDestination = props.flightObj['arrivalTimeDestination']
+    const arrivalTimeOrigin = props.flightObj['arrivalTimeOrigin']
+    const price = props.flightObj['price']
+    const carrierNameOrigin = props.flightObj['carrierNameOrigin']
+    const carrierNameDestination = props.flightObj['carrierNameDestination']
+    const bookingUrl = props.flightObj['bookingUrl']
+    const departureAirport = props.flightObj['departureAirport']
+    const arrivalAirport = props.flightObj['arrivalAirport']
+
     const floatLeft = {float: 'left'}
     const floatRight = {float: 'right'}
     const color = {color: 'white'}
@@ -22,7 +36,7 @@ const FlightPage = (props) => {
                     <md-card-content style={backgroundStyle}>
                         <h1 className="h1" style={floatLeft}>
                             <b>Flight Details</b>
-                            <span> | jetBlue</span>
+                            <span> | {carrierNameOrigin}</span>
                         </h1>
                         <h1 style={floatRight}>✈️</h1>
                     </md-card-content>
@@ -30,15 +44,15 @@ const FlightPage = (props) => {
                     <md-card-content style={backgroundStyle2}>
                         <md-card style={floatLeft}>
                             <md-card-content>
-                                <b>🛫 Departure </b> at <b>12:25pm EST</b> on <b>21 April 2020</b> from<br />
-                                <b>Indianapolis International Airport,</b> <i>IND</i><br/><br/>
+                                <b>🛫 Departure </b> at {departureTimeOrigin} from<br />
+                                    <b>{departureAirport}</b><br/><br/>
                             
-                                <b>🛬 Arrival </b> at <b>1:25pm CT</b> on <b>21 April 2020</b> in<br />
-                                <b>Chicago O'Hare International Airport,</b> <i>ORD</i>
+                                <b>🛬 Arrival </b> at {arrivalTimeDestination} in<br />
+                                <b>{arrivalAirport}</b> 
                             </md-card-content>
                         </md-card>
                         <md-card style={floatLeft}>
-                            Flight Cost One Way: $317
+                            Flight Cost: ${price}
                         </md-card>
                     </md-card-content>
                 </md-card>
