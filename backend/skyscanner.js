@@ -51,6 +51,7 @@ app.get('/get/flights/:departPort/:arrivalPort/:outboundDate/:inboundDate', (req
 
         if (updated_url == undefined) {
             res.json({});
+            return;
         }
 
         updated_url = updated_url.substring(updated_url.lastIndexOf('/'));
@@ -81,6 +82,7 @@ app.get('/get/flights/:departPort/:arrivalPort/:outboundDate/:inboundDate', (req
 
             if (itin == undefined) {
                 res.json({});
+                return;
             }
 
             console.log(itin);

@@ -56,6 +56,7 @@ app.get('/get/flights/:departPort/:arrivalPort/:outboundDate/:inboundDate', cors
         let updated_url = response.headers.location;
         if (updated_url == undefined) {
             res.json({});
+            return;
         }
 
         updated_url = updated_url.substring(updated_url.lastIndexOf('/'));
@@ -86,6 +87,7 @@ app.get('/get/flights/:departPort/:arrivalPort/:outboundDate/:inboundDate', cors
 
             if (itin == undefined) {
                 res.json({});
+                return;
             }
 
             let min = (itin)[0];
