@@ -13,6 +13,8 @@ const HotelPage = (props) => {
     var google_key = "AIzaSyBfqxhwQIerlzGjy1e9iuaPykkUcWngI5A"
     var source = "https://www.google.com/maps/embed/v1/place?key=" + google_key + "&q=" + location
 
+    console.log(source)
+
     var stars = ""
     if (rating >= 1) {
         stars = stars + "⭐"

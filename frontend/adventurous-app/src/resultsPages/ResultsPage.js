@@ -36,6 +36,7 @@ return body;
 };
 
 callHotelAPI = async () => {
+  console.log("http://localhost:5000/get/hotels/" + this.props.stateObj['city'] + "/" + this.props.stateObj['depart'])
 const response = await fetch("http://localhost:5000/get/hotels/" + this.props.stateObj['city'] + "/" + this.props.stateObj['depart']);
 const body = await response.json();
 this.setState({hotelData:body});
