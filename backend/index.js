@@ -268,7 +268,7 @@ app.get('/get/attractions/:location', cors(), (req, res) => {
         }
 
         let bod = JSON.parse(body);
-        console.log(attraction_options.qs.location_id);
+        //console.log(attraction_options.qs.location_id);
         attraction_options.qs.location_id = bod.data[0].result_object.location_id;
 
         request(attraction_options, function(error_2, response_2, body_2) {
@@ -294,7 +294,7 @@ app.get('/get/attractions/:location', cors(), (req, res) => {
                 });
             });
     
-            res.json(attract_dense);
+            res.json(attract_dense[0]);
         });
     }); 
 });
