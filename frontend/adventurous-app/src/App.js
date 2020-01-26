@@ -34,7 +34,7 @@ class App extends Component {
     this.setState({price:finalPrice});
     this.setState({depart:finalDepart});
     this.setState({arrive:finalArrive});
-    this.setState({airportCode:finalAC});
+    this.setState({airportCode:finalAC});                                                                                 
     this.setState({city:finalCity});
     //console.log(this.state.data);
   }
