@@ -15,10 +15,10 @@ class ResultsPage extends Component {
 
 componentDidMount() {
   // Call our fetch function below once the component mounts
-// this.callAttractionsAPI()
-//   .catch(err => console.log(err));
-// this.callHotelAPI()
-//   .catch(err => console.log(err));
+this.callAttractionsAPI()
+  .catch(err => console.log(err));
+this.callHotelAPI()
+  .catch(err => console.log(err));
 this.callFlightAPI()
   .catch(err => console.log(err));
 }
