@@ -89,8 +89,9 @@ class OptionPage extends Component {
                 }
             }
         }
-        console.log(city)
+        console.log(city);
         console.log(airportCode)
+    }
 
     handleResults = () => {
         this.props.setFinalState(this.state.temp, this.state.activity, this.state.price, 
@@ -129,7 +130,7 @@ class OptionPage extends Component {
                     Results
                 </div>
             </div>
-        )
+        );
     }
 
 }
