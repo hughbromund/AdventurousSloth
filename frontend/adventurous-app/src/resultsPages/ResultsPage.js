@@ -15,12 +15,12 @@ class ResultsPage extends Component {
 
 componentDidMount() {
   // Call our fetch function below once the component mounts
-this.callAttractionsAPI()
-  .catch(err => console.log(err));
+// this.callAttractionsAPI()
+//   .catch(err => console.log(err));
 this.callHotelAPI()
   .catch(err => console.log(err));
-this.callFlightAPI()
-  .catch(err => console.log(err));
+// this.callFlightAPI()
+//   .catch(err => console.log(err));
 }
 
 
@@ -36,7 +36,7 @@ return body;
 };
 
 callHotelAPI = async () => {
-const response = await fetch("http://localhost:5000/get/CS307/");
+const response = await fetch("http://localhost:5000/get/hotels/" + this.props.stateObj['city'] + "/" + this.props.stateObj['depart']);
 const body = await response.json();
 this.setState({hotelData:body});
 
