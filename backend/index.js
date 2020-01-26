@@ -313,7 +313,7 @@ app.get('/get/attractions/:location', cors(), (req, res) => {
                 });
             });
     
-            res.json(attract_dense[0]);
+            res.json(attract_dense);
         });
     }); 
 });
