@@ -45,13 +45,13 @@ class OptionPage extends Component {
     }
 
     handlePageChange = (number) => {
-        this.setState({ currentPage: number });
+        this.setState({ currentPage: number     });
     }
 
     handleResults = () => {
         // this.calculateCity();
 
-        let rand_int = Math.floor(Math.random() * 1);
+        let rand_int = Math.floor(Math.random() * 2);
 
         let city = '';
         let airportCode = '';
