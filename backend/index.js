@@ -91,6 +91,23 @@ app.get('/get/flights/:departPort/:arrivalPort/:outboundDate/:inboundDate', cors
             }
 
             let min = (itin)[0];
+
+            if (min == undefined) {
+                res.json({
+                    'departureTimeOrigin' : 'n/a',
+                    'departureTimeDestination' : 'n/a',
+                    'arrivalTimeDestination' : 'n/a',
+                    'arrivalTimeOrigin' : 'n/a',
+                    'price' : 'n/a',
+                    'carrierNameOrigin' : 'No flight found',
+                    'carrierNameDestination' : 'n/a',
+                    'bookingUrl' : 'n/a',
+                    'departureAirport' : 'n/a',
+                    'arrivalAirpot' : 'n/a'
+                });
+                return;
+            }
+
             let minCost = (min.PricingOptions)[0].Price;
             itin.forEach(element => {
                 if ((element.PricingOptions)[0].Price < minCost) {
