@@ -240,15 +240,27 @@ app.get('/get/hotels/:location/:date', cors(), (req, res) => {
     
             let bod_2 = JSON.parse(body_2);
             let hotel_dense = [];
+        
     
             bod_2.data.forEach(element => {
-                hotel_dense.push({
-                    name: element.name,
-                    rating: element.rating,
-                    price: element.price,
-                    location: (element.name + ' ' + element.location_string).replace('&', ''),
-                    booking_url: element.hac_offers.offers[0].link,
-                });
+                if (element.hac_offers.offers[0].link !== "undefined") {
+                    hotel_dense.push({
+                        name: element.name,
+                        rating: element.rating,
+                        price: element.price,
+                        location: (element.name + ' ' + element.location_string).replace('&', ''),
+                        booking_url: element.hac_offers.offers[0].link,
+                    });
+                }
+                else {
+                    hotel_dense.push({
+                        name: element.name,
+                        rating: element.rating,
+                        price: element.price,
+                        location: (element.name + ' ' + element.location_string).replace('&', ''),
+                        booking_url: "no booking url found",
+                    });
+                }
             });
     
             res.json(hotel_dense[0]);
