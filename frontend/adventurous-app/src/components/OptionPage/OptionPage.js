@@ -41,15 +41,67 @@ class OptionPage extends Component {
     handlePageChange = (number) => {
         this.setState({ currentPage: number });
     }
+    calculateCity = () => {
+        var city = null
+        var airportCode = null
+        if (this.state.temp === "hot") {
+            if (this.state.activity === "active") {
+                if (this.state.price === "expensive") {
+                    console.log("HOT + ACTIVE + EXPENSIVE")
+                    city = "Los Angeles, California"
+                    airportCode = "LAX-sky"
+                } else if (this.state.price === "cheap") {
+                    console.log("HOT + ACTIVE + CHEAP")
+                    city = "Grand Canyon Village, Arizona"
+                    airportCode = "PHX-sky"
+                }
+            } else if (this.state.activity === "relaxing") {
+                if (this.state.price === "expensive") {
+                    console.log("HOT + RELAXING + EXPENSIVE")
+                    city = "Oahu, Hawaii"
+                    airportCode = "HNL-sky"
+                } else if (this.state.price === "cheap") {
+                    console.log("HOT + RELAXING + CHEAP")
+                    city = "Santo Domingo, Dominican Republic"
+                    airportCode = "PUJ-sky"
+                }
+            }
+        } else if (this.state.temp === "cold") {
+            if (this.state.activity === "active") {
+                if (this.state.price === "expensive") {
+                    console.log("COLD + ACTIVE + EXPENSIVE")
+                    city = "Denver, Colorado"
+                    airportCode = "DEN-sky" 
+                } else if (this.state.price === "cheap") {
+                    console.log("COLD + ACTIVE + CHEAP")
+                    city = "Pierre, South Dakota"
+                    airportCode = "PIR-sky"
+                }
+            } else if (this.state.activity === "relaxing") {
+                if (this.state.price === "expensive") {
+                    console.log("COLD + RELAXING + EXPENSIVE")
+                    city = "Reykjavik, Iceland"
+                    airportCode = "RKV-sky"
+                } else if (this.state.price === "cheap") {
+                    console.log("COLD + RELAXING + CHEAP")
+                    city = "Quebec, Canada"
+                    airportCode = "YQB-sky"
+                }
+            }
+        }
+        console.log(city)
+        console.log(airportCode)
 
     handleResults = () => {
         this.props.setFinalState(this.state.temp, this.state.activity, this.state.price, 
                                 this.state.depart, this.state.arrive);
         //console.log("H: " + this.state.depart);
         history.push('/results');
+
     }
 
     render() {
+        this.calculateCity()
         return (
             <div>
                 <ReactPageScroller pageOnChange={this.handlePageChange}

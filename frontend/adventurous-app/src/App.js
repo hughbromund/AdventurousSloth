@@ -39,6 +39,7 @@ callBackendAPI = async () => {
   const body = await response.json();
   this.setState({data:body});
 
+
   if (response.status !== 200) {
     throw Error(body.message) 
   }
@@ -55,6 +56,7 @@ callBackendAPI = async () => {
   }
 
   render() {
+    console.log(this.state)
     return (
       <div>
       <Router history={history}>
