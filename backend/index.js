@@ -68,7 +68,6 @@ app.get('/get/flights/:departPort/:arrivalPort/:outboundDate/:inboundDate', cors
               originAirports: departPort,
               destinationAirports: arrivalPort,
               sortType: 'price',
-              stops: '0',
               pageIndex: '0',
               pageSize: '10'
             },
@@ -207,7 +206,6 @@ headers: {
 }
 };
 
-
 app.get('/get/hotels/:location/:date', cors(), (req, res) => {
     location_options.qs.query = req.params.location;
     hotel_options.qs.checkin = req.params.date;
@@ -321,6 +319,22 @@ app.get('/get/attractions/:location', cors(), (req, res) => {
     }); 
 });
 //end attraction request
+
+//begin error request
+app.get('/get/error', cors(), (req, res) => {
+    res.json({
+        'departureTimeOrigin' : 'n/a',
+        'departureTimeDestination' : 'n/a',
+        'arrivalTimeDestination' : 'n/a',
+        'arrivalTimeOrigin' : 'n/a',
+        'price' : 'n/a',
+        'carrierNameOrigin' : 'flight not found!',
+        'carrierNameDestination' : 'n/a',
+        'bookingUrl' : 'n/a',
+        'departureAirport' : 'n/a',
+        'arrivalAirpot' : 'n/a'
+    });
+});
 
 //begin cost request
 app.get('/get/cost/:planeCost/:hotelCost/:departure/:return', cors(), (req, res) => {
