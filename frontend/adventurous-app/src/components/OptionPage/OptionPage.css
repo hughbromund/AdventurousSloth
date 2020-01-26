@@ -1,0 +1,43 @@
+.homeButton {
+    position: fixed;
+    bottom: 3vh;
+    left: 2vw;
+    width: 20vw;
+    height: 5vh;
+    border: 3px solid white;
+    text-align: center;
+    font-size: 4vh;
+    border-radius: 30px;
+    color: white;
+    background-color: #940a37;
+    transition: 0.3s;
+    font-family: "Ubuntu";
+    font-weight: bold;
+}
+.homeButton:hover {
+    background-color: white;
+    color: #940a37;
+    cursor: pointer;
+}
+
+.resultsButton {
+    position: fixed;
+    bottom: 3vh;
+    right: 2vw;
+    width: 20vw;
+    height: 5vh;
+    border: 3px solid white;
+    text-align: center;
+    font-size: 4vh;
+    border-radius: 30px;
+    color: white;
+    background-color: #940a37;
+    transition: 0.3s;
+    font-family: "Ubuntu";
+    font-weight: bold;
+}
+.resultsButton:hover {
+    background-color: white;
+    color: #940a37;
+    cursor: pointer;
+}

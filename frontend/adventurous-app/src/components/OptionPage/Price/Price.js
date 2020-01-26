@@ -11,9 +11,13 @@ class Price extends Component {
         this.props.choose('expensive');
     }
 
+    goToNextPage = () => {
+        this.props.select(3);
+    }
+
     render() {
         return (
-            <div className="wrapper">
+            <div className="wrapper" onClick={this.goToNextPage}>
                 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin"></link>
                 <div className="leftDivPrice" onClick={this.sendCheapData}> 
                     <h1>{this.props.leftLabel}</h1>
