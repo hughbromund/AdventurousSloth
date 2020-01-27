@@ -16,3 +16,9 @@ Adventure Sloth is a web app which allows a user to choose from several preferen
 
 ## How it Works
 We used Express.js with Node.js for the backend and React and Javascript for the front end. The backend uses TripAdvisor and Skyscanner APIs via RapidAPIs to collect flight, hotel, and attraction data. The web-app is also hosted on the Google Cloud Platform via the App Engine. 
+
+## Developers
+[Hugh Bromund](https://www.linkedin.com/in/hughbromund/)
+[Peyton Williams](https://www.linkedin.com/in/peytondowwilliams/)
+[Aditya Naik](https://www.linkedin.com/in/aditya-naik-905162172/)
+[Daniel Joseph]()
