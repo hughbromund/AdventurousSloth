@@ -10,7 +10,7 @@ const HotelPage = (props) => {
     const location = props.hotelObj['location']
     const booking_url = props.hotelObj['booking_url']
 
-    var google_key = "AIzaSyBfqxhwQIerlzGjy1e9iuaPykkUcWngI5A"
+    var google_key = "GOOGLE_API_KEY"
     var source = "https://www.google.com/maps/embed/v1/place?key=" + google_key + "&q=" + location
 
     console.log(source)
