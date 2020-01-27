@@ -19,6 +19,9 @@ We used Express.js with Node.js for the backend and React and Javascript for the
 
 ## Developers
 [Hugh Bromund](https://www.linkedin.com/in/hughbromund/)
+
 [Peyton Williams](https://www.linkedin.com/in/peytondowwilliams/)
+
 [Aditya Naik](https://www.linkedin.com/in/aditya-naik-905162172/)
-[Daniel Joseph]()
+
+[Daniel Joseph](https://www.linkedin.com/in/daniel-joseph-1aab41144/)
